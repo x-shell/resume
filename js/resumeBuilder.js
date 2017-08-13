@@ -14,10 +14,12 @@ var bio = {
     "contacts": {
         "mobile": "18665070653",
         "email": "1453113602@qq.com",
-        "location": "广州",
+        "location": "广州天河区龙洞",
         "github": "https://x-shell.github.io/X-Shell-.github.io/"
     },
-    "welcomeMessage": "学而思之，吾自当强。",
+    "welcomeMessage": "学而思之，吾自当强。</br>"+
+    "学习能力强：能迅速学习公司的规章制度，和工作流程，专研新技术，乐于挑战。"+
+    "专业技能强：前端基本功扎实,具有独立前端编写能力。能够从页面设计图精确还原保真的页面原型，喜欢钻研新技术。",
     "skills": ["Photoshop", "Html5", "Css3","JavaScript", "Jquery", "Git", "Bootstrap"],
     "bioPic": "./images/fry.jpg",
     "display": function() {
@@ -57,7 +59,8 @@ var work = {
         "description": "在该公司主要负责两部分内容：" +
             " 1.香港B2C官网负责每月一次的感谢日活动所需的设计图，日常编辑产品上下架，首页、海报等所有页面设计。涉及部分页面前端代码的开发、解决运行中出现的各种问题。" +
             " 2.淘宝店铺：独自负责淘宝店铺的首页装修设计、详情页、二级活动页、海报、推广图等所有设计，使用淘宝开放平台的widget库编写店铺特效代码。",
-    }, {
+    },
+    {
         "employer": "广州善贝服装有限公司",
         "title": "网页设计/制作/美工",
         "location": "广州市天河区广州大道北",
@@ -69,7 +72,8 @@ var work = {
             "4. 负责品牌整体形象规范化、 活动页面策划及制作， 包括网店风格及商品展示设计， 并结合商品的特性制作图文并茂、 有美感、 有吸引购买力的描述模板；" +
             "5. 设计直通车， 钻展， 淘宝促销活动素材等广告图片；" +
             "6. 参与天猫京东双11， 双十二等大促活动的 首页和二级页面规划， 设计,特效制作。"
-    }, ],
+    }
+   ],
     "display": function() {
         for (var job = 0; job < work.jobs.length; job++) {
             $("#workExperience").append(HTMLworkStart); //在id为 workExperience里 插入 htmlworkstart。
@@ -96,14 +100,14 @@ var education = {
         "degree": "大专",
         "dates": "2017-2019",
         "location": "广州市海珠区",
-        "majors": "艺术设计"
+        "majors": ["艺术设计","平面广告"]
     }
   ],
     "onlineCourses": [
       {
         "title": "前端开发",
-        "school": "udactiy",
-        "dates": "2017",
+        "school": "udactiy优达学城",
+        "dates": "2017.06",
         "url": "https://udacity.com"
     }
   ],
@@ -123,13 +127,13 @@ var education = {
         );
         education.onlineCourses.forEach(
           function(item){
-            $("#education").append(HTMLonlineClasses);
+            $(".education-entry:last").append(HTMLonlineClasses);
             var displayEducationTitlee = HTMLonlineTitle.replace("%data%", item.title);
             var displayEducationSchool = HTMLonlineSchool.replace("%data%", item.school);
             var displayEducationDates = HTMLonlineDates.replace("%data%", item.dates);
             var displayEducationUrl = HTMLonlineURL.replace("%data%", item.url);
             var displayEducationAll = displayEducationTitlee + displayEducationSchool + displayEducationDates + displayEducationUrl;
-            $(".online-entry").append(displayEducationAll);
+            $(".education-entry:last").append(displayEducationAll);
           }
         );
         //for遍历
@@ -152,12 +156,20 @@ education.display();
 
 //项目经验
 var projects = {
-    "project": [{
+    "project": [
+      {
         "title": "第一个个人网站",
         "dates": "2017",
-        "description": "第一个个人网站博客，使用响应式设计，无缝兼容",
-        "images": ["./images/works1-large.jpg","./images/works1-large.jpg","./images/works1-large.jpg"]
-    }],
+        "description": "第一个个人网站博客，使用自定义的响应式设计，无bootstrap组件",
+        "images": ["./images/works1-large.jpg"]
+    },
+    {
+      "title": "电子简历",
+      "dates": "2017",
+      "description": "使用固定html模板加joson填充的电子简历。",
+      "images": ["./images/works2-large.jpg"]
+  }
+],
     display: function() {
         for (var vul = 0; vul < projects.project.length; vul++) {
             $("#projects").append(HTMLprojectStart);

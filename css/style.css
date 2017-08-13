@@ -23,15 +23,39 @@ h6 {
   color: #fff;
   font-size: 20px;
 }
+.oltitle{
+  padding: 0;
+  margin: 10px 0;
+}
+.flex-column .flex-item:first-of-type{
+  padding-left: 0;
+  margin-left: 0;
+}
+.flex-column .flex-item{
+  display: inline-block;
+  margin: 10px;
+  background: #f90;
+  border-radius: 20px;
+}
+.flex-column .white-text{
+  display: block;
+  padding: 5px 10px;
+}
+.welcome-message{
+  margin-top: 20px;
+}
 /*自定义结束*/
 .clear-fix {
   overflow: auto;
 }
 
 .education-entry,
-.work-entry,
+.work-entry{
+    padding: 0 5%;
+  }
 .project-entry {
-  padding: 0 5%;
+  padding: 0 0 0 5%;
+  display: inline-block;
 }
 
 h1 {
@@ -103,7 +127,7 @@ a {
 }
 
 .welcome-message {
-  font-style: italic;
+  padding-left: 20px;
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
@@ -139,7 +163,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #3c4351;
 }
 
 .flex-box {
@@ -151,11 +175,6 @@ a {
   padding: 10px;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
 
 .center-content {
   padding: 2.5% 5%;
@@ -167,13 +186,14 @@ ul {
 
 .biopic {
   float: left;
+  margin-right: 20px;
   padding: 10px;
   width: 200px;
   display: none;
 }
 
 img {
-  padding: 10px;
+  padding: 10px 0;
 }
 
 span {
