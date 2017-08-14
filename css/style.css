@@ -44,6 +44,9 @@ h6 {
 .welcome-message{
   margin-top: 20px;
 }
+a:hover{
+  color:#f90;
+}
 /*自定义结束*/
 .clear-fix {
   overflow: auto;

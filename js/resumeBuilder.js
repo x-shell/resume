@@ -43,6 +43,9 @@ var bio = {
                 $("#skills").append(displayskitt);
             });
         }
+
+        //底部
+        $("#footerContacts").append(contactsAll);
     }
 };
 bio.display();
