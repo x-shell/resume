@@ -48,7 +48,7 @@ var bio = {
         $("#footerContacts").append(contactsAll);
     }
 };
-bio.display();
+
 
 /////////////////////////////////////
 
@@ -91,7 +91,7 @@ var work = {
     }
 
 };
-work.display();
+
 
 //////////////////////////////////////
 
@@ -103,7 +103,8 @@ var education = {
         "degree": "大专",
         "dates": "2017-2019",
         "location": "广州市海珠区",
-        "majors": ["艺术设计","平面广告"]
+        "majors": ["艺术设计","平面广告"],
+        "url": "https://gzarts.edu.cn/2013"
     }
   ],
     "onlineCourses": [
@@ -114,7 +115,6 @@ var education = {
         "url": "https://udacity.com"
     }
   ],
-    major: ["photoshop", "picture"],
     display: function() {
         education.schools.forEach(
           function (item){
@@ -153,7 +153,7 @@ var education = {
     }
 };
 
-education.display();
+
 
 //////////////////////////////////////
 
@@ -188,6 +188,9 @@ var projects = {
         };
     }
 };
+bio.display();
+work.display();
+education.display();
 projects.display();
 //////////////////////////////////////////
 
