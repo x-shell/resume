@@ -10,7 +10,7 @@
 //
 var bio = {
     "name": "周桂旭",
-    "rol": "前端开发",
+    "role": "前端开发",
     "contacts": {
         "mobile": "18665070653",
         "email": "1453113602@qq.com",
@@ -21,21 +21,23 @@ var bio = {
     "学习能力强：能迅速学习公司的规章制度，和工作流程，专研新技术，乐于挑战。"+
     "专业技能强：前端基本功扎实,具有独立前端编写能力。能够从页面设计图精确还原保真的页面原型，喜欢钻研新技术。",
     "skills": ["Photoshop", "Html5", "Css3","JavaScript", "Jquery", "Git", "Bootstrap"],
-    "bioPic": "./images/fry.jpg",
+    "biopic": "./images/fry.jpg",
     "display": function() {
         var headerName = HTMLheaderName.replace("%data%", bio.name);
-        var headerRole = HTMLheaderRole.replace("%data%", bio.rol);
+        var headerRole = HTMLheaderRole.replace("%data%", bio.role);
         $("#header").prepend(headerName, headerRole);
+
         var contactsMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
         var contactsEmail = HTMLemail.replace("%data%", bio.contacts.email);
         var contactsLocation = HTMLlocation.replace("%data%", bio.contacts.location);
         var contactsGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-        var contactsAll = contactsMobile + contactsEmail + contactsLocation + contactsGithub;
-        $("#topContacts").append(contactsAll);
-        var headerPic = HTMLbioPic.replace("%data%", bio.bioPic);
+        // var contactsAll = contactsMobile + contactsEmail + contactsLocation + contactsGithub;
+
+        $("#topContacts,#footerContacts").append(contactsMobile,contactsEmail,contactsLocation,contactsGithub);
+
+        var headerPic = HTMLbioPic.replace("%data%", bio.biopic);
         var headerWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage.toUpperCase());
-        var headerAll = headerPic + headerWelcomeMsg;
-        $("#header").append(headerAll);
+        $("#header").append(headerPic,headerWelcomeMsg);
         if (bio.skills.length > 0) {
             $("#header").append(HTMLskillsStart);
             bio.skills.forEach(function(skill) {
@@ -44,8 +46,6 @@ var bio = {
             });
         }
 
-        //底部
-        $("#footerContacts").append(contactsAll);
     }
 };
 
@@ -87,7 +87,7 @@ var work = {
             var fromattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
             var fromattedAll = fromattedEmployer + fromattedTitle + fromattedLocation + fromattedDates + fromattedDescription;
             $(".work-entry:last").append(fromattedAll);
-        }
+        };
     }
 
 };
@@ -104,7 +104,7 @@ var education = {
         "dates": "2017-2019",
         "location": "广州市海珠区",
         "majors": ["艺术设计","平面广告"],
-        "url": "https://gzarts.edu.cn/2013"
+        "url": "http://www.gzarts.edu.cn/2013/"
     }
   ],
     "onlineCourses": [
@@ -119,14 +119,15 @@ var education = {
         education.schools.forEach(
           function (item){
                 $("#education").append(HTMLschoolStart);
-                var displayEducationName = HTMLschoolName.replace("%data%", item.name);
+                var displayEducationName = HTMLschoolName.replace("%data%",item.name);
+                var displayEducationNameUrl = displayEducationName.replace("#", item.url);
                 var displayEducationLocation = HTMLschoolLocation.replace("%data%", item.location);
                 var displayEducationDegree = HTMLschoolDegree.replace("%data%", item.degree);
                 var displayEducationMajors = HTMLschoolMajor.replace("%data%", item.majors);
                 var displayEducationDates = HTMLschoolDates.replace("%data%", item.dates);
-                var displayEducationAll = displayEducationName + displayEducationDegree + displayEducationDates + displayEducationLocation + displayEducationMajors;
-                $(".education-entry:last").append(displayEducationAll);
-          }// 为什么在这里加分号就出现错误呢？
+                var displayEducationAll = displayEducationNameUrl + displayEducationDegree + displayEducationDates + displayEducationLocation + displayEducationMajors;
+                $(".education-entry:last").append(displayEducationAll,);
+          },// 为什么在这里加分号就出现错误呢？
         );
         education.onlineCourses.forEach(
           function(item){
@@ -159,7 +160,7 @@ var education = {
 
 //项目经验
 var projects = {
-    "project": [
+    "projects": [
       {
         "title": "第一个个人网站",
         "dates": "2017",
@@ -174,14 +175,14 @@ var projects = {
   }
 ],
     display: function() {
-        for (var vul = 0; vul < projects.project.length; vul++) {
+        for (var vul = 0; vul < projects.projects.length; vul++) {
             $("#projects").append(HTMLprojectStart);
-            var displayTitle = HTMLprojectTitle.replace("%data%", projects.project[vul].title);
-            var displayDates = HTMLprojectDates.replace("%data%", projects.project[vul].dates);
-            var displayDescription = HTMLprojectDescription.replace("%data%", projects.project[vul].description);
+            var displayTitle = HTMLprojectTitle.replace("%data%", projects.projects[vul].title);
+            var displayDates = HTMLprojectDates.replace("%data%", projects.projects[vul].dates);
+            var displayDescription = HTMLprojectDescription.replace("%data%", projects.projects[vul].description);
             var projectsDisplayAll = displayTitle + displayDates + displayDescription;
             $(".project-entry:last").append(projectsDisplayAll);
-            projects.project[vul].images.forEach( function (item) {
+            projects.projects[vul].images.forEach( function (item) {
               var displayImages = HTMLprojectImage.replace("%data%", item);
               $(".project-entry:last").append(displayImages);
             });
